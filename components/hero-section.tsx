@@ -6,7 +6,7 @@ import DarkVeil from "@/components/dark-veil";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-16 md:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-18 md:pt-0">
 
       {/* Blue ray animation */}
       
