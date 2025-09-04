@@ -156,37 +156,48 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/90 backdrop-blur-md border-t border-border">
-            <div className="py-4 space-y-2">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.href;
-                return (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.href)}
-                    className={`block w-full text-left px-4 py-2 rounded-md transition-all duration-300 ${
-                      isActive
-                        ? "text-primary bg-primary/10 shadow-md ring-2 ring-primary/30 scale-105"
-                        : "text-foreground hover:text-primary hover:bg-muted hover:scale-105"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                );
-              })}
-              <div className="px-4 pt-2">
-                <Button
-                  onClick={() => scrollToSection("#contact")}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-md"
-                >
-                  Hire Me
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Mobile Menu Button */}
+<button
+  className="md:hidden"
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  aria-label="Toggle menu"
+>
+  {isMobileMenuOpen ? (
+    <X className="h-6 w-6 text-gray-900 dark:text-white" />
+  ) : (
+    <Menu className="h-6 w-6 text-gray-900 dark:text-white" />
+  )}
+</button>
+
+{/* Mobile Side Menu */}
+{isMobileMenuOpen && (
+  <>
+    {/* Overlay */}
+    <div
+      className="fixed inset-0 bg-black/40 z-40"
+      onClick={() => setIsMobileMenuOpen(false)}
+    />
+
+    {/* Drawer */}
+    <div className="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-950 shadow-lg z-50 transform transition-transform duration-300 animate-slide-in">
+      <nav className="px-6 py-6 flex flex-col space-y-6">
+        {navItems.map((item) => (
+  <button
+    key={item.name}
+    onClick={() => scrollToSection(item.href)}
+    className="text-left flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+  >
+    {item.name}
+  </button>
+))}
+
+
+        
+      </nav>
+    </div>
+  </>
+)}
+
       </div>
     </nav>
   );
