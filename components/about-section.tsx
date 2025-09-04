@@ -164,7 +164,14 @@ export default function AboutSection() {
   <Button
     variant="outline"
     className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-5 py-2.5 rounded-lg font-medium transition-all duration-300 bg-transparent text-base"
-  >
+  
+    onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+
+            >
     <ExternalLink className="w-4 h-4 mr-2" />
     Get In Touch
   </Button>
