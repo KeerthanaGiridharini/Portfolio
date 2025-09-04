@@ -14,7 +14,7 @@ export default function Footer() {
             <span>Made with</span>
             <Heart className="w-4 h-4 text-red-400 fill-current" />
             <span>by Keerthana</span>
-            <span className="opacity-60">© 2024</span>
+            <span className="opacity-60">© 2025</span>
           </div>
         </div>
       </div>
