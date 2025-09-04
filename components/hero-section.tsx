@@ -2,16 +2,21 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles } from "lucide-react";
+import DarkVeil from "@/components/dark-veil";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      <div className="absolute inset-0 w-full h-full">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-background via-secondary/5 to-primary/5 animate-pulse"
-          style={{ animationDuration: "4s" }}
-        ></div>
+    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
+      {/* Blue ray animation */}
+      
+      <div className="absolute inset-0 w-full h-full"
+        style={{ background: 'radial-gradient(circle at center, #e0f7ff, #ffffff)' }}>
+      {/* Aurora Gradient Animation */}
+<div className="absolute inset-0 overflow-hidden">
+  <div className="aurora"></div>
+</div>
 
+      
         <div className="absolute inset-0 overflow-hidden opacity-30">
           <div className="absolute top-20 right-20 w-32 h-32 border border-primary/20 rounded-full animate-pulse"></div>
           <div
@@ -64,6 +69,7 @@ export default function HeroSection() {
                 animationDuration: `${3 + (i % 2)}s`,
               }}
             ></div>
+            
           ))}
         </div>
 

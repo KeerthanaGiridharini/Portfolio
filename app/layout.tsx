@@ -13,9 +13,12 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: "Keerthana - UI/UX Developer Portfolio",
+  title: " Keerthana || Portfolio ",
   description: "Portfolio of Keerthana, a passionate UI/UX developer crafting user-centric experiences",
   generator: "v0.app",
+  icons: {
+    icon: "/K.png", // or "/favicon.png"
+  },
 }
 
 export default function RootLayout({
@@ -31,3 +34,4 @@ export default function RootLayout({
     </html>
   )
 }
+

@@ -7,12 +7,17 @@ import ProjectsSection from "@/components/projects-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
+import DarkVeil from "@/components/dark-veil"
+
+
+
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       <section id="hero">
+        
         <HeroSection />
       </section>
       <section id="about">

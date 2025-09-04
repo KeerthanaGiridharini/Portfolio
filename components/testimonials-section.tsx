@@ -7,44 +7,44 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    role: "Product Manager",
-    company: "TechFlow Solutions",
+    name: "Noreen Scriwer",
+    role: "Web Designer/QA",
+    company: "Atlink Communications(pvt) ltd",
     content:
-      "Keerthana is an exceptional UI/UX developer who consistently delivers outstanding results. Her attention to detail and user-centric approach has significantly improved our product's user experience.",
+      "I had the privilege of working with Keerthana for one year during her internship as a UI/UX Designer, and I can confidently say she is one of the best interns I’ve ever worked with. From day one, she impressed me with her creativity, strong design sense, and dedication to learning. Keerthana has a natural talent for understanding user needs and translating them into clean, intuitive designs. She consistently delivered high-quality work, often going above and beyond expectations. What stood out most was her ability to balance creativity with functionality, ensuring her designs were both visually appealing and user-friendly.Beyond her skills, Keerthana’s attitude and work ethic make her a true asset to any team. She is proactive, eager to take on challenges, and always open to feedback, which shows her commitment to growth. I have no doubt that Keerthana will excel in her career as a UI/UX professional, and I wholeheartedly recommend her to any organization looking for someone talented, reliable, and passionate about design.",
     rating: 5,
     avatar:
-      "https://i.pinimg.com/736x/6f/a3/6a/6fa36aa2c367da06b2a4c8ae1cf9ee02.jpg",
+      "/noreen.png",
   },
   {
-    name: "Michael Chen",
-    role: "CTO",
-    company: "Digital Innovations Inc.",
+    name: "Prathibha Nishadi",
+    role: "Senior Software Engineer",
+    company: "Atlink Communications(pvt) ltd",
     content:
-      "Working with Keerthana was a game-changer for our startup. She transformed our complex ideas into intuitive, beautiful interfaces that our users absolutely love. Highly recommended!",
+      "During her internship at AtLink Communications(pvt) ltd, Keerthana impressed everyone with her ability to learn quickly and deliver great results. She quickly picked up new challenges with maturity, adapted well and collaborated effectively. Keerthana was a dedicated intern with a positive attitude and strong work ethics. She will be a great asset wherever she works. ",
     rating: 5,
     avatar:
-      "https://i.pinimg.com/736x/89/4e/16/894e16749bb2800527958cf7813b998e.jpg",
+      "/prathibha.png",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Design Director",
-    company: "Creative Agency",
+    name: "Malintha Nilhan",
+    role: "Software Engineer",
+    company: "Trellixo",
     content:
-      "Keerthana brings the perfect blend of design expertise and technical skills. Her ability to bridge the gap between design and development is truly remarkable.",
+      "I worked with Keerthana on few freelancing projects, and I was always impressed by her ability to quickly adapt to development but also has a strong problem-solving mindset. Her dedication, and collaborative spirit made working together smooth and enjoyable. ",
     rating: 5,
     avatar:
-      "https://i.pinimg.com/736x/5a/ac/66/5aac6619a8b81993b10be58fbded3951.jpg",
+      "/malintha.jpeg",
   },
   {
-    name: "David Kumar",
-    role: "Founder",
-    company: "StartupHub",
+    name: "Eraj Weerasinghe",
+    role: "UX Director",
+    company: "Atlink Communications(pvt) ltd",
     content:
       "From day one, Keerthana showed incredible dedication and skill. She not only met our expectations but exceeded them with innovative solutions and flawless execution.",
     rating: 5,
     avatar:
-      "https://i.pinimg.com/736x/d9/7f/aa/d97faa4ca82603ea39b68b534f63b89a.jpg",
+      "/Eraj.jpeg",
   },
   {
     name: "Lisa Thompson",
@@ -53,7 +53,7 @@ const testimonials = [
     content:
       "Keerthana's collaborative approach and deep understanding of user psychology make her an invaluable team member. She consistently delivers designs that users find intuitive and engaging.",
     rating: 5,
-    avatar: "/professional-headshot-of-lisa-thompson.png",
+    avatar: "/Eraj.jpeg",
   },
   {
     name: "Alex Martinez",
@@ -77,9 +77,9 @@ export default function TestimonialsSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Star className="w-4 h-4" />
-            Client Testimonials
+             Testimonials
           </div>
-          <h2 className="font-manrope text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight text-balance">
+          <h2 className="font-manrope text-3xl font-bold text-foreground mb-3">
             Trusted by Amazing Teams
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-8 text-pretty">
@@ -91,7 +91,8 @@ export default function TestimonialsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full max-w-6xl mx-auto">
           {/* Large Left Card */}
-          <div className="bg-card/90 backdrop-blur-sm p-8 rounded-2xl flex flex-col justify-between border border-border/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+          <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-2xl flex flex-col justify-between border-2 border-blue-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
+
             <div className="mb-8">
               {/* Company Logo Placeholder */}
               <div className="flex items-center mb-6">
@@ -108,7 +109,7 @@ export default function TestimonialsSection() {
                   />
                 ))}
               </div>
-              <p className="text-base sm:text-lg lg:text-xl text-card-foreground leading-relaxed mb-8 italic">
+              <p className="text-base sm:text-base lg:text-base text-card-foreground leading-relaxed mb-8">
                 "{testimonials[0].content}"
               </p>
             </div>
@@ -137,7 +138,7 @@ export default function TestimonialsSection() {
           {/* Right Column for Testimonials */}
           <div className="flex flex-col gap-6">
             {/* Large Right Card */}
-            <div className="bg-card/90 backdrop-blur-sm p-8 rounded-2xl flex flex-col justify-between border border-border/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+            <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-2xl flex flex-col justify-between border-2 border-blue-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
               {/* Rating Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonials[1].rating)].map((_, i) => (
@@ -147,7 +148,7 @@ export default function TestimonialsSection() {
                   />
                 ))}
               </div>
-              <p className="text-base sm:text-lg lg:text-xl text-card-foreground leading-relaxed mb-8 italic">
+              <p className="text-base sm:text-base lg:text-base text-card-foreground leading-relaxed mb-8">
                 "{testimonials[1].content}"
               </p>
               <div className="flex items-center">
@@ -177,7 +178,7 @@ export default function TestimonialsSection() {
             {/* Small Cards Container */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Small Card 1 */}
-              <div className="bg-card/90 backdrop-blur-sm p-6 rounded-2xl flex flex-col justify-between border border-border/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-2xl flex flex-col justify-between border-2 border-blue-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
                 {/* Rating Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonials[2].rating)].map((_, i) => (
@@ -187,7 +188,7 @@ export default function TestimonialsSection() {
                     />
                   ))}
                 </div>
-                <p className="text-sm sm:text-base text-card-foreground leading-relaxed mb-6 italic">
+                <p className="text-sm sm:text-base text-card-foreground leading-relaxed mb-6">
                   "{testimonials[2].content}"
                 </p>
                 <div className="flex items-center">
@@ -215,7 +216,7 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Small Card 2 */}
-              <div className="bg-card/90 backdrop-blur-sm p-6 rounded-2xl flex flex-col justify-between border border-border/50 shadow-lg hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-secondary/20 backdrop-blur-sm p-8 rounded-2xl flex flex-col justify-between border-2 border-blue-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1">
                 {/* Rating Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonials[3].rating)].map((_, i) => (
@@ -225,7 +226,7 @@ export default function TestimonialsSection() {
                     />
                   ))}
                 </div>
-                <p className="text-sm sm:text-base text-card-foreground leading-relaxed mb-6 italic">
+                <p className="text-sm sm:text-base text-card-foreground leading-relaxed mb-6 ">
                   "{testimonials[3].content}"
                 </p>
                 <div className="flex items-center">

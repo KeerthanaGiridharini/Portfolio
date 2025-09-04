@@ -121,3 +121,35 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes auroraMove {
+  0% {
+    transform: translate(-20%, -20%) scale(1);
+  }
+  50% {
+    transform: translate(20%, 20%) scale(1.2);
+  }
+  100% {
+    transform: translate(-20%, -20%) scale(1);
+  }
+}
+
+.aurora {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 30% 30%,
+      rgba(138, 43, 226, 0.6),
+      transparent 60%
+    ),
+    radial-gradient(circle at 70% 70%, rgba(75, 0, 130, 0.5), transparent 60%),
+    radial-gradient(circle at 40% 80%, rgba(0, 0, 255, 0.3), transparent 70%);
+  filter: blur(100px);
+  animation: auroraMove 15s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+
+
+
+

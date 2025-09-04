@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, TrendingUp, Award } from "lucide-react"
+import { Calendar, MapPin, TrendingUp, Award, Laptop } from "lucide-react"
 
 type ExperienceLevel = keyof typeof levelColors;
 
@@ -60,6 +60,10 @@ export default function ExperienceSection() {
     <section id="experience" className="py-16 bg-background">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Laptop className="w-4 h-4" />
+             What I Gained
+          </div>
           <h2 className="font-manrope text-3xl font-bold text-foreground mb-3">Work Experience</h2>
           <div className="w-16 h-1 bg-primary rounded-full mx-auto mb-4"></div>
           <p className="text-muted-foreground max-w-xl mx-auto">

@@ -162,7 +162,7 @@ export default function ProjectsSection() {
             <Star className="w-4 h-4" />
             Featured Work
           </div>
-          <h2 className="font-manrope text-4xl font-bold text-foreground mb-4">
+          <h2 className="font-manrope text-3xl font-bold text-foreground mb-3">
             Featured Projects & Designs
           </h2>
           <div className="w-20 h-1 bg-primary rounded-full mx-auto mb-6"></div>

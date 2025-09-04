@@ -13,6 +13,8 @@ import {
   Target,
   Brush,
   Database,
+  
+  Pen,
 } from "lucide-react"
 
 const technicalSkills = [
@@ -57,6 +59,10 @@ export default function SkillsSection() {
     <section id="skills" className="py-16 bg-background">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Pen className="w-4 h-4" />
+             What I Know
+          </div>
           <h2 className="font-manrope text-3xl font-bold text-foreground mb-3">Skills & Expertise</h2>
           <div className="w-16 h-1 bg-primary rounded-full mx-auto mb-4"></div>
           <p className="text-muted-foreground max-w-xl mx-auto">

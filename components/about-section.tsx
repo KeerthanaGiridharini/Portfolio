@@ -27,11 +27,11 @@ export default function AboutSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-secondary/20 px-4 py-2 rounded-full mb-4">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            <span className="text-lg font-medium text-primary">
+            <span className="text-base font-medium text-primary">
               Get to know me
             </span>
           </div>
-          <h2 className="font-manrope text-4xl font-bold text-foreground mb-4 text-balance">
+          <h2 className="font-manrope text-3xl font-bold text-foreground mb-3">
             About Me
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"></div>
@@ -68,11 +68,11 @@ export default function AboutSection() {
               <div className="flex items-start gap-4">
                 <Quote className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <blockquote className="text-lg font-medium text-foreground mb-2 italic">
+                  <blockquote className="text-base font-medium text-foreground mb-2 italic">
                     "Great design isn't just about aesthetics—it's about solving
                     real problems and making people's lives easier."
                   </blockquote>
-                  <cite className="text-lg text-muted-foreground">
+                  <cite className="text-base text-muted-foreground">
                     — My Design Philosophy
                   </cite>
                 </div>
@@ -80,10 +80,10 @@ export default function AboutSection() {
             </Card>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-8 text-base ">
             <div className="space-y-6">
-              <div className="space-y-4 text-lg leading-relaxed text-muted-foreground">
-                <p className="text-lg text-foreground font-medium">
+              <div className="space-y-4 text-base leading-relaxed text-muted-foreground">
+                <p className="text-base text-foreground font-medium">
                   I am a motivated and enthusiastic software engineering first
                   class graduate with a strong foundation in programming,
                   problem-solving, and modern technologies. My academic and
@@ -91,38 +91,39 @@ export default function AboutSection() {
                   applications, work with AI-driven solutions, and create
                   user-centered systems.
                 </p>
-                <p className="text-lg">
+                <p className="text-base">
                   I am committed to continuous learning and professional growth,
                   with the ambition to contribute to innovative projects that
                   combine technical precision with real-world impact.
                 </p>
               </div>
 
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-foreground">
-                  Core Expertise
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "UI/UX Design",
-                    "Frontend Development",
-                    "XAI",
-                    "Deep Learning",
-                    "Machine Learning",
-                    "React",
-                    "Boosrtrap",
-                    "Adobe Creative Suite",
-                  ].map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="px-3 py-1 bg-secondary/20 text-secondary-foreground hover:bg-secondary/30 transition-colors text-lg"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+              <div className="space-y-3 ">
+  <h3 className="text-lg font-semibold text-foreground">
+    Core Expertise
+  </h3>
+  <div className="flex flex-wrap justify-left gap-3">
+    {[
+      "UI/UX Design",
+      "Frontend Development",
+      "XAI",
+      "Deep Learning",
+      "Machine Learning",
+      "React",
+      "Bootstrap",
+      "Adobe Creative Suite",
+    ].map((skill) => (
+      <Badge
+        key={skill}
+        variant="secondary"
+        className="px-2.5 py-0.5 bg-secondary/20 text-secondary-foreground hover:bg-secondary/30 transition-colors text-xs"
+      >
+        {skill}
+      </Badge>
+    ))}
+  </div>
+</div>
+
             </div>
 
             <div className="grid grid-cols-3 gap-4">
@@ -144,29 +145,30 @@ export default function AboutSection() {
               </Card>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 text-lg"
-                onClick={() => {
-                  const link = document.createElement("a");
-                  link.href = "/cv/CV.pdf";
-                  link.download = "Keerthana_Giridharini_CV.pdf";
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                }}
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
-              </Button>
-              <Button
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-300 bg-transparent text-lg"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Get In Touch
-              </Button>
-            </div>
+            <div className="flex flex-wrap gap-4 pt-4 ">
+  <Button
+    className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2.5 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 text-base"
+    onClick={() => {
+      const link = document.createElement("a");
+      link.href = "/cv/CV.pdf";
+      link.download = "Keerthana_Giridharini_CV.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }}
+  >
+    <Download className="w-4 h-4 mr-2" />
+    Download Resume
+  </Button>
+  <Button
+    variant="outline"
+    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-5 py-2.5 rounded-lg font-medium transition-all duration-300 bg-transparent text-base"
+  >
+    <ExternalLink className="w-4 h-4 mr-2" />
+    Get In Touch
+  </Button>
+</div>
+
           </div>
         </div>
       </div>
