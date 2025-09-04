@@ -11,8 +11,8 @@ const projects = [
       "A deep learning–based multi-class classification system for diagnosing gallbladder diseases using ultrasound images with XAI",
     image: "/fyp1.png",
     technologies: ["React", "Deep learning", "XAI", "Flask"],
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://github.com/KeerthanaGiridharini/Cholecheck.github.io",
+    githubUrl: "https://github.com/KeerthanaGiridharini/Cholecheck.github.io",
     featured: true,
     category: "Web Application",
 
