@@ -112,6 +112,7 @@ export default function AboutSection() {
       "React",
       "Bootstrap",
       "Adobe Creative Suite",
+      "Analytics"
     ].map((skill) => (
       <Badge
         key={skill}
