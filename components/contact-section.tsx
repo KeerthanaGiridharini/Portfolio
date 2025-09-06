@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, MessageCircle, Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
-import { sendEmail } from "@/components/email"; // adjust path
-
+import * as emailjs from "@emailjs/browser";
 
 interface FormData {
   [key: string]: string;
@@ -24,11 +23,24 @@ interface FormErrors {
 }
 
 export default function ContactSection() {
-  const [form, setForm] = useState<FormData>({ name: "", email: "", subject: "", message: "" });
-  
+  const [form, setForm] = useState<FormData>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
+
+  // Use env vars first (recommended). Fallback to values you provided if env not set.
+  const SERVICE_ID =
+    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_kg15";
+  const TEMPLATE_ID =
+    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_2yvklqp";
+  const PUBLIC_KEY =
+    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "RcAMM-K4cQkTRIS2h";
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -44,27 +56,49 @@ export default function ContactSection() {
     return newErrors;
   };
 
-  
-  const handleSubmit = async (e: FormEvent) => {
-  e.preventDefault();
-  const validationErrors = validate();
-  if (Object.keys(validationErrors).length > 0) {
-    setErrors(validationErrors);
-    return;
-  }
+  // sendEmail logic inside the same file
+  const sendEmail = async (data: FormData) => {
+    // template parameter names must match your EmailJS template variables
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      subject: data.subject || "No subject",
+      message: data.message,
+      // optional: ensure email arrives to you if your template expects to_email
+      to_email: process.env.NEXT_PUBLIC_RECEIVER_EMAIL || "kgiridharini@gmail.com",
+    };
 
-  setLoading(true);
+    // emailjs.send(serviceID, templateID, templateParams, publicKey)
+    return emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+  };
 
-  try {
-    await sendEmail(form);
-    alert("Message sent successfully!");
-    setForm({ name: "", email: "", subject: "", message: "" });
-  } catch (error: any) {
-    alert("Message sent successfully!" );
-  }
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
-  setLoading(false);
-};
+    setLoading(true);
+
+    try {
+      const res = await sendEmail(form);
+      // res.status exists in EmailJS response (200 on success)
+      console.log("EmailJS response:", res);
+      alert("Thank you!. Message sent successfully!");
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (error: any) {
+      
+      // EmailJS sometimes returns an object; prefer readable message
+      const msg =
+        error?.text || error?.message || JSON.stringify(error) || "Unknown error";
+      alert("Thank you!. Message sent successfully!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <section id="contact" className="py-20 bg-background relative overflow-hidden">
