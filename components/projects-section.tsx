@@ -6,7 +6,7 @@ import { ExternalLink, Github, Star, Calendar, Users } from "lucide-react";
 const projects = [
   {
     title:
-      "Cholecheck - XAI based Gallbladder Disease Detection & Classification",
+      "Cholecheck - XAI Based Gallbladder Disease Detection & Classification",
     description:
       "A deep learning–based multi-class classification system for diagnosing gallbladder diseases using ultrasound images with XAI",
     image: "/fyp1.png",
@@ -62,7 +62,7 @@ const projects = [
     highlights: ["Course Management", "Progress Tracking"],
   },
   {
-    title: "Foodie - Meal preparation and Recipe App",
+    title: "Foodie - Meal Preparation & Recipe App",
     description:
       "A meal preparation app that retrieves recipe data from an API and stores it in a database for easy access and planning.",
     image: "/meal.png",
@@ -76,7 +76,7 @@ const projects = [
     highlights: ["Advanced Search Filters", "Virtual Tours"],
   },
   {
-    title: "Dice roller - Mobile Game Application",
+    title: "Dice Roller - Mobile Game Application",
     description:
       "An interactive dice roller game where a human competes against the computer for the highest score.",
     image: "/dice.png",

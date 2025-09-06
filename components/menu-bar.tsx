@@ -159,16 +159,16 @@ function MenuBar(): React.JSX.Element {
 {/* Mobile Side Drawer */}
 {isMobileOpen && (
   <>
-    {/* Dark Overlay */}
+    {/* Full-Screen Dark Overlay */}
     <div
-      className="fixed inset-0 bg-black/40 z-40"
+      className="fixed inset-0 w-full h-screen bg-black/40 dark:bg-black/50 z-40"
       onClick={() => setIsMobileOpen(false)}
     />
 
     {/* Side Nav */}
     <div
-      className="fixed top-0 left-0 h-full w-64 z-50 shadow-lg p-6 flex flex-col gap-6
-      bg-white dark:bg-gray-900 bg-opacity-100 backdrop-blur-md"
+      className="fixed top-0 left-0 h-screen w-64 z-50 shadow-lg p-6 flex flex-col gap-6
+                 bg-white dark:bg-gray-900"
     >
       {menuItems.map((item) => (
         <button
@@ -186,6 +186,7 @@ function MenuBar(): React.JSX.Element {
     </div>
   </>
 )}
+
 
 
     </>

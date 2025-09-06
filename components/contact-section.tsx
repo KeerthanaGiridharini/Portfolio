@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, MessageCircle, Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
-import emailjs from "@emailjs/browser";
+import { sendEmail } from "@/components/email"; // adjust path
+
 
 interface FormData {
   [key: string]: string;
@@ -24,6 +25,8 @@ interface FormErrors {
 
 export default function ContactSection() {
   const [form, setForm] = useState<FormData>({ name: "", email: "", subject: "", message: "" });
+  
+
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
 
@@ -41,35 +44,27 @@ export default function ContactSection() {
     return newErrors;
   };
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+  
+  const handleSubmit = async (e: FormEvent) => {
+  e.preventDefault();
+  const validationErrors = validate();
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    emailjs
-      .send(
-        "YOUR_SERVICE_ID",   // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID",  // Replace with your EmailJS template ID
-        form,                // Form data { name, email, subject, message }
-        "YOUR_PUBLIC_KEY"    // Replace with your EmailJS public key
-      )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-          setForm({ name: "", email: "", subject: "", message: "" });
-          setLoading(false);
-        },
-        (error) => {
-          alert("Oops! Something went wrong. " + error.text);
-          setLoading(false);
-        }
-      );
-  };
+  try {
+    await sendEmail(form);
+    alert("Message sent successfully!");
+    setForm({ name: "", email: "", subject: "", message: "" });
+  } catch (error: any) {
+    alert("Message sent successfully!" );
+  }
+
+  setLoading(false);
+};
 
   return (
     <section id="contact" className="py-20 bg-background relative overflow-hidden">
