@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-const NAV_HEIGHT = 80; // adjust if your navbar is taller/shorter
+const NAV_HEIGHT = 80; // keep for IntersectionObserver margin
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -37,7 +37,6 @@ export default function Navigation() {
 
     if (sectionEls.length === 0) return;
 
-    // Trigger when the "probe line" (rootMargin top) is within a section.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -48,54 +47,25 @@ export default function Navigation() {
         });
       },
       {
-        // Adjust rootMargin for better detection - trigger when section is near the top of viewport
         root: null,
-        rootMargin: `-${NAV_HEIGHT + 20}px 0px -70% 0px`,
-        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+        rootMargin: `-${NAV_HEIGHT}px 0px -70% 0px`,
+        threshold: [0.25, 0.5, 0.75],
       }
     );
 
     sectionEls.forEach((el) => observer.observe(el));
 
-    // Fallback scroll listener for better responsiveness
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + NAV_HEIGHT + 50;
-
-      for (let i = sectionEls.length - 1; i >= 0; i--) {
-        const section = sectionEls[i];
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-
-        if (
-          scrollPosition >= sectionTop &&
-          scrollPosition < sectionTop + sectionHeight
-        ) {
-          const id = `#${section.id}`;
-          if (activeSection !== id) {
-            setActiveSection(id);
-          }
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => {
       observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeSection]);
+  }, []);
 
-  // Smooth scroll + immediate highlight on click
+  // Smooth scroll + highlight on click
   const scrollToSection = (href: string) => {
     const el = document.querySelector<HTMLElement>(href);
     if (!el) return;
-
-    const y =
-      el.getBoundingClientRect().top + window.pageYOffset - (NAV_HEIGHT + 12);
-    setActiveSection(href); // highlight right away
-    window.scrollTo({ top: y, behavior: "smooth" });
+    el.scrollIntoView({ behavior: "smooth" });
+    setActiveSection(href);
     setIsMobileMenuOpen(false);
   };
 
@@ -109,9 +79,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <button
-            onClick={() => {
-              scrollToSection("#hero");
-            }}
+            onClick={() => scrollToSection("#hero")}
             className="font-manrope text-xl font-bold text-foreground hover:text-primary transition-colors"
           >
             Keerthana
@@ -156,48 +124,31 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
-<button
-  className="md:hidden"
-  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-  aria-label="Toggle menu"
->
-  {isMobileMenuOpen ? (
-    <X className="h-6 w-6 text-gray-900 dark:text-white" />
-  ) : (
-    <Menu className="h-6 w-6 text-gray-900 dark:text-white" />
-  )}
-</button>
+        {/* Mobile Side Menu */}
+        {isMobileMenuOpen && (
+          <>
+            {/* Overlay */}
+            <div
+              className="fixed inset-0 bg-black/40 z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
 
-{/* Mobile Side Menu */}
-{isMobileMenuOpen && (
-  <>
-    {/* Overlay */}
-    <div
-      className="fixed inset-0 bg-black/40 z-40"
-      onClick={() => setIsMobileMenuOpen(false)}
-    />
-
-    {/* Drawer */}
-    <div className="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-950 shadow-lg z-50 transform transition-transform duration-300 animate-slide-in">
-      <nav className="px-6 py-6 flex flex-col space-y-6">
-        {navItems.map((item) => (
-  <button
-    key={item.name}
-    onClick={() => scrollToSection(item.href)}
-    className="text-left flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-  >
-    {item.name}
-  </button>
-))}
-
-
-        
-      </nav>
-    </div>
-  </>
-)}
-
+            {/* Drawer */}
+            <div className="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-950 shadow-lg z-50 transform transition-transform duration-300 animate-slide-in">
+              <nav className="px-6 py-6 flex flex-col space-y-6">
+                {navItems.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-left flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </nav>
+            </div>
+          </>
+        )}
       </div>
     </nav>
   );
