@@ -17,11 +17,21 @@ const testimonials = [
       "/noreen.png",
   },
   {
+    name: "Eraj Weerasinghe",
+    role: "UX Director",
+    company: "Atlink Communications(pvt) ltd",
+    content:
+      "It was great having Keerthana on AtLink's UI/UX team during her placement year. Her strong work ethic, reliability, and problem-solving skills ensured she consistently delivered work of a very high standard on many of our biggest projects. Day to day, Keerthana communicated effectively, was always eager to learn, and approached every challenge with a positive outlook. She also maintained good relationships with everyone on the team. I would definitely recommend her.",
+    rating: 5,
+    avatar:
+      "/Eraj.jpeg",
+  },
+  {
     name: "Prathibha Nishadi",
     role: "Senior Software Engineer",
     company: "Atlink Communications(pvt) ltd",
     content:
-      "During her internship at AtLink Communications(pvt) ltd, Keerthana impressed everyone with her ability to learn quickly and deliver great results. She quickly picked up new challenges with maturity, adapted well and collaborated effectively. Keerthana was a dedicated intern with a positive attitude and strong work ethics. She will be a great asset wherever she works. ",
+      "During her internship, Keerthana impressed everyone with her ability to learn quickly and deliver great results. She quickly picked up new challenges with maturity, adapted well and collaborated effectively. Keerthana was a dedicated intern with a positive attitude and strong work ethics. She will be a great asset wherever she works. ",
     rating: 5,
     avatar:
       "/prathibha.png",
@@ -36,16 +46,7 @@ const testimonials = [
     avatar:
       "/malintha.jpeg",
   },
-  {
-    name: "Eraj Weerasinghe",
-    role: "UX Director",
-    company: "Atlink Communications(pvt) ltd",
-    content:
-      "From day one, Keerthana showed incredible dedication and skill. She not only met our expectations but exceeded them with innovative solutions and flawless execution.",
-    rating: 5,
-    avatar:
-      "/Eraj.jpeg",
-  },
+  
   {
     name: "Lisa Thompson",
     role: "UX Researcher",
