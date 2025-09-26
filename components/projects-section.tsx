@@ -110,15 +110,15 @@ const projects = [
   },
 
   {
-    title: "Goods Transport Application",
+    title: "YUM YUM Restuarant Application",
     description:
-      "A design solution for efficient and safe transportation of goods and logistics.",
-    image: "/transport.png",
-    technologies: ["Figma", "Photoshop", "UI/UX", "User Research"],
+      "A design solution for efficient & easy restuarant application.",
+    image: "/YUMYUM.png",
+    technologies: ["Framer", "Photoshop", "UI/UX", "User Research"],
     liveUrl:
-      "https://www.figma.com/design/3yIC0k8Zqd9JlWPhgPcVMZ/Transportation-App?node-id=0-1&t=VYhfo9AJLNoYH5bW-1",
+      "https://gold-decisions-238382.framer.app/",
     githubUrl:
-      "https://www.figma.com/design/3yIC0k8Zqd9JlWPhgPcVMZ/Transportation-App?node-id=0-1&t=VYhfo9AJLNoYH5bW-1",
+      "https://gold-decisions-238382.framer.app/",
     featured: true,
     category: "UI/UX Design",
 
