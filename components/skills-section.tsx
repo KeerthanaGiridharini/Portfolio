@@ -36,7 +36,7 @@ const designSkills = [
 const tools = [
   "Figma",
   "Adobe Creative Suite",
-  "Sketch",
+  "Framer",
   "Tensorflow",
   "Keras",
   "React",
