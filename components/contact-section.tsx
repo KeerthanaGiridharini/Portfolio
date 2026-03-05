@@ -59,20 +59,25 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      const dbRes = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1245a8ba-e8b1-49e4-9786-90b708f46cd6",
+          ...form,
+        }),
       });
 
-      if (!dbRes.ok) {
-        throw new Error("Failed to send message");
+      const result = await response.json();
+      if (result.success) {
+        toast.success("Message sent successfully!");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(result.message || "Failed to send message");
       }
-
-      console.log("Successfully sent to backend");
-
-      toast.success("Message sent successfully!");
-      setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error: any) {
       console.error("Error sending message:", error);
       toast.error("There was an error sending your message. Please try again.");
