@@ -6,22 +6,21 @@ import DarkVeil from "@/components/dark-veil";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-18 md:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center bg-background overflow-hidden pt-18 md:pt-0">
 
       {/* Blue ray animation */}
-      
-      <div className="absolute inset-0 w-full h-full"
-        style={{ background: 'radial-gradient(circle at center, #e0f7ff, #ffffff)' }}>
-      {/* Aurora Gradient Animation */}
-<div className="absolute inset-0 overflow-hidden">
-  <div className="aurora"></div>
-</div>
 
-      
+      <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,#e0f7ff,#ffffff)] dark:bg-[radial-gradient(circle_at_center,rgba(0,119,192,0.15),transparent)]">
+        {/* Aurora Gradient Animation */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="aurora"></div>
+        </div>
+
+
         <div className="absolute inset-0 overflow-hidden opacity-30">
           <div className="absolute top-20 right-20 w-32 h-32 border border-primary/20 rounded-full animate-pulse"></div>
           <div
-            className="absolute bottom-32 left-16 w-24 h-24 bg-secondary/30 rounded-lg rotate-12 animate-bounce"
+            className="absolute bottom-32 left-16 w-24 h-24 bg-secondary/30 rounded-lg rotate-12 animate-bounce dark:hidden"
             style={{ animationDuration: "3s" }}
           ></div>
           <div
@@ -51,7 +50,7 @@ export default function HeroSection() {
           <div
             className="w-full h-full animate-pulse"
             style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
+              backgroundImage: `radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0)`,
               backgroundSize: "40px 40px",
               animationDuration: "8s",
             }}
@@ -70,7 +69,7 @@ export default function HeroSection() {
                 animationDuration: `${3 + (i % 2)}s`,
               }}
             ></div>
-            
+
           ))}
         </div>
 
@@ -174,10 +173,10 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 hidden md:block">
-  <div className="animate-bounce">
-    <ArrowDown className="w-5 h-5 text-primary" />
-  </div>
-</div>
+        <div className="animate-bounce">
+          <ArrowDown className="w-5 h-5 text-primary" />
+        </div>
+      </div>
 
     </section>
   );

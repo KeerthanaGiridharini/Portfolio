@@ -17,6 +17,35 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    title: "Associate UI/UX Engineer",
+    company: "Happy Chimps UK",
+    period: "2025 - Present",
+    location: "Hybrid",
+    description: "Designed and developed responsive applications.graphics & videos with focus on user experience.",
+    achievements: [
+      "Increased user engagement by 40% through redesigned medical clinic website interface & worked on live projects",
+      "Reduced development time by 30% by creating comprehensive design system",
+      "Led UX research initiatives that improved user satisfaction scores by 25%",
+      "Created animations & graphics for few projects",
+      "Handing UI/UX works individually",
+    ],
+    technologies: ["Next.js",  "Figma", "React","Canva","Photoshop"],
+    level: "junior",
+  },{
+    title: "Visiting Lecturer",
+    company: "Informatics Institute of Technology",
+    period: "2026 JAN - Present",
+    location: "Physical",
+    description: "Conducting business computing fundamentals module for undergraduate students",
+    achievements: [
+      "Python based data analytics & visualization",
+      "Excel for business analytics",
+
+      
+    ],
+    technologies: ["Python",  "Anaconda", "Jupyter Notebook","Pandas","sqlite3"],
+    level: "junior",
+  },{
     title: "Trainee UI/UX Engineer",
     company: "Atlink Communications lnc",
     period: "2023 - 2024",
@@ -44,6 +73,18 @@ const experiences: Experience[] = [
       "Worked on few research projects"
     ],
     technologies: ["React", "Kotlin", "Figma", "Google sites", "Bootstrap","Framer"],
+    level: "junior",
+  },
+  {
+    title: "Quality Assurance Technician",
+    company: "Global System Solutions",
+    period: "2021 - 2022",
+    location: "Colombo, Sri Lanka",
+    description: "Worked on manual testing of retail market image recognition model training project",
+    achievements: [
+      "Had a good experience on manual testing process",
+          ],
+    technologies: [],
     level: "junior",
   },
 

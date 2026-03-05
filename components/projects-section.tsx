@@ -110,17 +110,17 @@ const projects = [
   },
 
   {
-    title: "YUM YUM Restuarant Application",
+    title: "Responsive website design & development",
     description:
-      "A design solution for efficient & easy restuarant application.",
-    image: "/YUMYUM.png",
-    technologies: ["Framer", "Photoshop", "UI/UX", "User Research"],
+      "A design & development solution for efficient & user friendly application.",
+    image: "/websites.png",
+    technologies: ["Figma", "Photoshop", "UI/UX", "next.js", "typescript"],
     liveUrl:
-      "https://gold-decisions-238382.framer.app/",
+      "https://www.figma.com/design/AT0LIjwHCjHGb6Ublmp1XF/Business-website?node-id=240-535",
     githubUrl:
-      "https://gold-decisions-238382.framer.app/",
+      "https://www.figma.com/design/AT0LIjwHCjHGb6Ublmp1XF/Business-website?node-id=240-535",
     featured: true,
-    category: "UI/UX Design",
+    category: "UI/UX Design & Development",
 
     highlights: [
       "Real-time Analytics",
@@ -147,6 +147,36 @@ const projects = [
       "Inventory Management",
       "User Insights",
     ],
+  },
+  
+  {
+    title: "Graphics - Static posters",
+    description:
+      "Graphic designs which used for social media posting as static posts",
+    image: "/Untitled-1.png",
+    technologies: ["Canva", "Photoshop"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: false,
+    category: "Graphic design",
+    duration: "4 months",
+    team: "4 members",
+    highlights: ["Engagement Metrics", "Content Scheduling"],
+  },
+  
+  {
+    title: "Motion Graphics",
+    description:
+      "An interactive videos for social media posting",
+    image: "/v.png",
+    technologies: ["Canva", "Photoshop"],
+    liveUrl: "https://drive.google.com/drive/folders/16ZrVWh3XrB6_RUOa4AUK_D4r8hiNJfw0?usp=drive_link",
+    githubUrl: "https://drive.google.com/drive/folders/16ZrVWh3XrB6_RUOa4AUK_D4r8hiNJfw0?usp=drive_link",
+    featured: false,
+    category: "Motion graphics/video editing",
+    duration: "4 months",
+    team: "4 members",
+    highlights: ["Engagement Metrics", "Content Scheduling"],
   },
 ];
 

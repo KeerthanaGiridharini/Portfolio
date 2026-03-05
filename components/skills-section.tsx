@@ -4,6 +4,7 @@ import {
   Palette,
   Code,
   Figma,
+  Framer,
   Search,
   Layers,
   Smartphone,
@@ -20,9 +21,10 @@ import {
 const technicalSkills = [
   { name: "React", level: 90, icon: Code, color: "bg-blue-100 text-blue-700" },
   { name: "Java", level: 85, icon: Code, color: "bg-indigo-100 text-indigo-700" },
-  { name: "Sass", level: 88, icon: Brush, color: "bg-cyan-100 text-cyan-700" },
+  { name: "Next.js", level: 88, icon: Code, color: "bg-cyan-100 text-cyan-700" },
   { name: "Python", level: 80, icon: Code, color: "bg-green-100 text-green-700" },
   { name: "Boostrap", level: 80, icon: Code, color: "bg-orange-100 text-orange-700" },
+  { name: "Flutter/Kotlin", level:40, icon: Code, color: "bg-red-100 text-red-700" },
 ]
 
 const designSkills = [
@@ -31,6 +33,7 @@ const designSkills = [
   { name: "User Research", level: 80, icon: Search, color: "bg-orange-100 text-orange-700" },
   { name: "AI website Builder", level: 88, icon: Layers, color: "bg-teal-100 text-teal-700" },
   { name: "Midjourney & Dalle ", level: 80, icon: Database, color: "bg-green-100 text-green-700" },
+  { name: "Framer ", level: 80, icon: Framer, color: "bg-yellow-100 text-yellow-500" },
 ]
 
 const tools = [
@@ -45,6 +48,7 @@ const tools = [
   "Git",
   "Canva",
   "Excel",
+  "Deep learning",
 ]
 
 const specializations = [

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, MessageCircle, Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
-import * as emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 interface FormData {
   [key: string]: string;
@@ -34,14 +34,6 @@ export default function ContactSection() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
 
-  // Use env vars first (recommended). Fallback to values you provided if env not set.
-  const SERVICE_ID =
-    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_kg15";
-  const TEMPLATE_ID =
-    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_2yvklqp";
-  const PUBLIC_KEY =
-    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "RcAMM-K4cQkTRIS2h";
-
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
@@ -56,22 +48,6 @@ export default function ContactSection() {
     return newErrors;
   };
 
-  // sendEmail logic inside the same file
-  const sendEmail = async (data: FormData) => {
-    // template parameter names must match your EmailJS template variables
-    const templateParams = {
-      from_name: data.name,
-      from_email: data.email,
-      subject: data.subject || "No subject",
-      message: data.message,
-      // optional: ensure email arrives to you if your template expects to_email
-      to_email: process.env.NEXT_PUBLIC_RECEIVER_EMAIL || "kgiridharini@gmail.com",
-    };
-
-    // emailjs.send(serviceID, templateID, templateParams, publicKey)
-    return emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-  };
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -83,17 +59,23 @@ export default function ContactSection() {
     setLoading(true);
 
     try {
-      const res = await sendEmail(form);
-      // res.status exists in EmailJS response (200 on success)
-      console.log("EmailJS response:", res);
-      alert("Thank you!. Message sent successfully!");
+      const dbRes = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (!dbRes.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      console.log("Successfully sent to backend");
+
+      toast.success("Message sent successfully!");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error: any) {
-      
-      // EmailJS sometimes returns an object; prefer readable message
-      const msg =
-        error?.text || error?.message || JSON.stringify(error) || "Unknown error";
-      alert("Thank you!. Message sent successfully!");
+      console.error("Error sending message:", error);
+      toast.error("There was an error sending your message. Please try again.");
     } finally {
       setLoading(false);
     }
